@@ -18,7 +18,7 @@ public class FileStorageService {
 
     private final Path uploadRoot;
 
-    public FileStorageService(@Value("${file.upload-dir:uploads}") String uploadDir) {
+    public FileStorageService(@Value("${file.upload-dir:/tmp/uploads}") String uploadDir) {
         this.uploadRoot = Paths.get(uploadDir).toAbsolutePath().normalize();
         try {
             Files.createDirectories(this.uploadRoot);
